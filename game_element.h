@@ -14,7 +14,7 @@ class GameElement {
   int GetWidth() const { return width_; }
   int GetHeight() const { return height_; }
   bool GetIsActive() const { return is_active_; }
-  bool IntersectsWith(const GameElement &other);
+  bool IntersectsWith(GameElement *other);
   bool IsOutOfBounds(const graphics::Image &screen);
   virtual void Draw(graphics::Image &game_screen) = 0;
   virtual void Move(const graphics::Image &game_screen) = 0;

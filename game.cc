@@ -17,7 +17,7 @@ void Game::Init() {
 void Game::CreateOpponents() {
   for (int i = 0; i < 5; i++) {
     Opponent my_opponent(100 * i, 20);
-    opponents_.push_back(my_opponent);
+    opponents_->push_back(my_opponent);
   }
 }
 
