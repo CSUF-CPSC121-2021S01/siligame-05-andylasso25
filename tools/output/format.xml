@@ -35,9 +35,20 @@
 </replacements>
 <?xml version='1.0'?>
 <replacements xml:space='preserve' incomplete_format='false'>
-<replacement offset='102' length='2'>&#10;</replacement>
-<replacement offset='812' length='3'>&#10;&#10;</replacement>
-<replacement offset='891' length='3'>&#10;&#10;</replacement>
+<replacement offset='104' length='2'>&#10;</replacement>
+<replacement offset='267' length='3'>&#10;&#10;</replacement>
+<replacement offset='650' length='0'> </replacement>
+<replacement offset='651' length='1'></replacement>
+<replacement offset='703' length='0'> </replacement>
+<replacement offset='704' length='1'></replacement>
+<replacement offset='750' length='0'> </replacement>
+<replacement offset='751' length='1'></replacement>
+<replacement offset='811' length='0'> </replacement>
+<replacement offset='812' length='1'></replacement>
+<replacement offset='830' length='3'>&#10;&#10;</replacement>
+<replacement offset='877' length='0'> </replacement>
+<replacement offset='878' length='1'></replacement>
+<replacement offset='909' length='3'>&#10;&#10;</replacement>
 </replacements>
 <?xml version='1.0'?>
 <replacements xml:space='preserve' incomplete_format='false'>
