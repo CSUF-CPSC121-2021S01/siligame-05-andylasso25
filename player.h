@@ -21,6 +21,17 @@ class PlayerProjectile : public GameElement {
   const graphics::Color kBlue{0, 0, 255};
 };
 
+class PlayerShield : public GameElement {
+ public:
+  PlayerShield() : PlayerShield(0, 0) {}
+  PlayerShield(int x, int y) : GameElement(x, y, 5, 5) {}
+  void Draw(graphics::Image &player_shield);
+  //  bool IntersectsWith(Opponent &opponent);
+ private:
+  void PadPoints(std::vector<int> &points, int pad_x, int pad_y);
+  const graphics::Color kBlue{0, 0, 255};
+};
+
 class Player : public GameElement {
  public:
   Player() : Player(0, 0) {}

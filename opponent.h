@@ -23,4 +23,15 @@ class OpponentProjectile : public GameElement {
   void Move(const graphics::Image &image);
 };
 
+class OpponentShield : public GameElement {
+ public:
+  OpponentShield() : OpponentShield(0, 0) {}
+  OpponentShield(int x, int y) : GameElement(x, y, 5, 5) {}
+  void Draw(graphics::Image &opponent_shield);
+  //  bool IntersectsWith(Opponent &opponent);
+ private:
+  void PadPoints(std::vector<int> &points, int pad_x, int pad_y);
+  const graphics::Color kBlue{0, 0, 255};
+};
+
 #endif

@@ -28,13 +28,31 @@ void Opponent::Draw(graphics::Image &opponent) {
 }
 
 void OpponentProjectile::Draw(graphics::Image &opponent_proj) {
-  graphics::Image opp_proj;
-  opp_proj.Load("opponentProjectile.bmp");
-  for (int i = 0; i < GetWidth(); i++) {
-    for (int j = 0; j < GetHeight(); j++) {
-      opponent_proj.SetColor(GetX() + i, GetY() + j, opp_proj.GetColor(i, j));
-    }
-  }
+  opponent_proj.DrawRectangle(0, 0, 10, 10, red);
+  opponent_proj.DrawRectangle(3, 0, 4, 6, red);
+  opponent_proj.SaveImageBmp("opponentProjectile.bmp");
+  
+  // graphics::Image opp_proj;
+  // opp_proj.Load("opponentProjectile.bmp");
+  // for (int i = 0; i < GetWidth(); i++) {
+  //   for (int j = 0; j < GetHeight(); j++) {
+  //     opponent_proj.SetColor(GetX() + i, GetY() + j, opp_proj.GetColor(i, j));
+  //   }
+  // }
+}
+
+void OpponentShield::Draw(graphics::Image &opponent_shield) {
+  opponent_shield.DrawRectangle(15, 15, 20, 20, black);
+  opponent_shield.DrawRectangle(30, 13, 0, 15, magenta);
+  opponent_shield.SaveImageBmp("opponentShield.bmp");
+
+  // graphics::Image opp;
+  // opp.Load("opponentShield.bmp");
+  // for (int i = 0; i < GetWidth(); i++) {
+  //   for (int j = 0; j < GetHeight(); j++) {
+  //     opponent_shield.SetColor(GetX() + i, GetY() + j, opp.GetColor(i, j));
+  //   }
+  // }
 }
 
 void Opponent::Move(const graphics::Image &image) {

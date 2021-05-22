@@ -29,16 +29,31 @@ void Player::Draw(graphics::Image &player) {
 }
 
 void PlayerProjectile::Draw(graphics::Image &player_proj) {
-  // player_proj.DrawRectangle(0, 0, 5, 5, Pblue);
-  // player_proj.SaveImageBmp("playerProjectile.bmp");
+  player_proj.DrawRectangle(0, 0, 5, 5, Pblue);
+  player_proj.DrawRectangle(3, 0, 2, 3, Pblue);
+  player_proj.SaveImageBmp("playerProjectile.bmp");
 
-  graphics::Image play_proj;
-  play_proj.Load("playerProjectile.bmp");
-  for (int i = 0; i < GetWidth(); i++) {
-    for (int j = 0; j < GetHeight(); j++) {
-      player_proj.SetColor(GetX() + i, GetY() + j, play_proj.GetColor(i, j));
-    }
-  }
+  // graphics::Image play_proj;
+  // play_proj.Load("playerProjectile.bmp");
+  // for (int i = 0; i < GetWidth(); i++) {
+  //   for (int j = 0; j < GetHeight(); j++) {
+  //     player_proj.SetColor(GetX() + i, GetY() + j, play_proj.GetColor(i, j));
+  //   }
+  // }
+}
+
+void PlayerShield::Draw(graphics::Image &player_shield) {
+  player_shield.DrawRectangle(15, 15, 20, 20, Pblue);
+  player_shield.DrawRectangle(30, 13, 0, 15, Pgreen);
+  player_shield.SaveImageBmp("playerShield.bmp");
+
+  // graphics::Image play;
+  // play.Load("playerShield.bmp");
+  // for (int i = 0; i < GetWidth(); i++) {
+  //   for (int j = 0; j < GetHeight(); j++) {
+  //     player.SetColor(GetX() + i, GetY() + j, play.GetColor(i, j));
+  //   }
+  // }
 }
 
 void Player::Move(const graphics::Image &image) {}
