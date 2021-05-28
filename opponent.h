@@ -21,6 +21,7 @@ class OpponentProjectile : public GameElement {
   OpponentProjectile(int x, int y) : GameElement(x, y, 5, 5) {}
   void Draw(graphics::Image &opponent_proj);
   void Move(const graphics::Image &image);
+  std::unique_ptr<OpponentProjectile> LaunchProjectile() { return nullptr; }
 };
 
 class OpponentShield : public GameElement {

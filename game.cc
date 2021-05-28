@@ -16,7 +16,7 @@ void Game::Init() {
 
 void Game::CreateOpponents() {
   for (int i = 0; i < 5; i++) {
-    Opponent my_opponent(100 * i, 20);
+    std::unique_ptr<Opponent>& my_opponent(); // 100 * i, 20
     opponents_.push_back(my_opponent);
   }
 }
@@ -37,8 +37,8 @@ void Game::CreatePlayerProjectiles() {
 
 void Game::MoveGameElements() {
   for (int i = 0; i < opponents_.size(); i++) {
-    if (opponents_[i].GetIsActive()) {
-      opponents_[i].Move(game_screen_);
+    if (*opponents_[i]->GetIsActive()) {
+      *opponents_[i]->Move(game_screen_);
     }
   }
   for (int i = 0; i < opponent_projectiles_.size(); i++) {
@@ -55,26 +55,26 @@ void Game::MoveGameElements() {
 
 void Game::FilterIntersections() {
   for (int i = 0; i < opponents_.size(); i++) {
-    if (opponents_[i].GetIsActive() && my_player_.GetIsActive() &&
+    if (*opponents_[i]->GetIsActive() && my_player_.GetIsActive() &&
         my_player_.IntersectsWith(opponents_[i])) {
       // opponents_.erase(opponents_.begin() + i);
-      opponents_[i].SetIsActive(false);
+      *opponents_[i]->SetIsActive(false);
       my_player_.SetIsActive(false);
     } else {
       for (int j = 0; j < player_projectiles_.size(); j++) {
-        if (opponents_[i].GetIsActive() &&
-            player_projectiles_[j].GetIsActive() &&
-            player_projectiles_[j].IntersectsWith(opponents_[i])) {
-          opponents_[i].SetIsActive(false);
-          player_projectiles_[j].SetIsActive(false);
+        if (*opponents_[i]->GetIsActive() &&
+            *player_projectiles_[j]->GetIsActive() &&
+            *player_projectiles_[j]->IntersectsWith(opponents_[i])) {
+          *opponents_[i]->SetIsActive(false);
+          *player_projectiles_[j]->SetIsActive(false);
         }
       }
     }
   }
   for (int i = 0; i < opponent_projectiles_.size(); i++) {
-    if (opponent_projectiles_[i].GetIsActive() && my_player_.GetIsActive() &&
+    if (*opponent_projectiles_[i]->GetIsActive() && my_player_.GetIsActive() &&
         my_player_.IntersectsWith(opponent_projectiles_[i])) {
-      opponent_projectiles_[i].SetIsActive(false);
+      *opponent_projectiles_[i]->SetIsActive(false);
       my_player_.SetIsActive(false);
     }
   }
@@ -88,18 +88,18 @@ void Game::UpdateScreen() {
     my_player_.Draw(game_screen_);
   }
   for (int i = 0; i < opponents_.size(); i++) {
-    if (opponents_[i].GetIsActive()) {
-      opponents_[i].Draw(game_screen_);
+    if (*opponents_[i]->GetIsActive()) {
+      *opponents_[i]->Draw(game_screen_);
     }
   }
   for (int i = 0; i < opponent_projectiles_.size(); i++) {
-    if (opponent_projectiles_[i].GetIsActive()) {
-      opponent_projectiles_[i].Draw(game_screen_);
+    if (*opponent_projectiles_[i]->GetIsActive()) {
+      *opponent_projectiles_[i]->Draw(game_screen_);
     }
   }
   for (int i = 0; i < player_projectiles_.size(); i++) {
-    if (player_projectiles_[i].GetIsActive()) {
-      player_projectiles_[i].Draw(game_screen_);
+    if (*player_projectiles_[i]->GetIsActive()) {
+      *player_projectiles_[i]->Draw(game_screen_);
     }
   }
 }
